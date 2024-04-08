@@ -14,6 +14,8 @@ Pod::Spec.new do |s|
   s.author       = { "PonyCui" => "cuiminghui1@yy.com" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/svga/SVGAPlayer-iOS.git", :tag => s.version }
+  s.resources    = ['Source/Resources/PrivacyInfo.xcprivacy']
+  
   s.subspec 'Core' do |ss|
     ss.source_files  = "Source/*.{h,m}"
     ss.requires_arc = true
@@ -21,12 +23,11 @@ Pod::Spec.new do |s|
     ss.library = "z"
     ss.framework = "AVFoundation"
     ss.dependency 'SVGAPlayer/ProtoFiles'
-    ss.resources = ['SVGAPlayer/Resources/PrivacyInfo.xcprivacy']
   end
   s.subspec 'ProtoFiles' do |ss|
     ss.source_files  = "Source/pbobjc/*.{h,m}"
     ss.requires_arc = false
-    ss.dependency 'Protobuf', '~> 3.4'
+    ss.dependency 'Protobuf'
     ss.pod_target_xcconfig = {
       'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1',
     }
