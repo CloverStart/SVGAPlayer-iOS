@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
     ss.library = "z"
     ss.framework = "AVFoundation"
     ss.dependency 'SVGAPlayer/ProtoFiles'
+    ss.resources = ['SVGAPlayer/Resources/PrivacyInfo.xcprivacy']
   end
   s.subspec 'ProtoFiles' do |ss|
     ss.source_files  = "Source/pbobjc/*.{h,m}"
